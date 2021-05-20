@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CRPickerButton'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of CRPickerButton.'
+  s.version          = '1.0.0'
+  s.summary          = 'CRPickerButton for UIButton with UIPickerView.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,13 +18,13 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+A simple UIPickerView + UIButton UI component. Written in Swift.
                        DESC
 
   s.homepage         = 'https://github.com/chorim/CRPickerButton'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'chorim' => 'yuki@yuki.kr' }
+  s.author           = { 'chorim' => 'me@byeon.is' }
   s.source           = { :git => 'https://github.com/chorim/CRPickerButton.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
@@ -32,11 +32,5 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'CRPickerButton/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'CRPickerButton' => ['CRPickerButton/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'UIKit'
 end

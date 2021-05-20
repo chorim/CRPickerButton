@@ -1,0 +1,16 @@
+PODS:
+  - CRPickerButton (1.0.0)
+
+DEPENDENCIES:
+  - CRPickerButton (from `../`)
+
+EXTERNAL SOURCES:
+  CRPickerButton:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CRPickerButton: 95afdb1bd8ddce2a8298939d5f02f0953dd317ec
+
+PODFILE CHECKSUM: ccac367ff00e77dc4692c4db72c5f9ed8ecd5d2b
+
+COCOAPODS: 1.10.0

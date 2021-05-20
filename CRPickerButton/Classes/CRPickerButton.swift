@@ -1,0 +1,151 @@
+//
+//  CRPickerButton.swift
+//  CRPickerButton
+//
+//  Created by Insu Byeon on 2021/05/20.
+//
+
+import UIKit
+
+public class CRPickerButton: UIButton {
+  
+  private let pickerView = UIPickerView()
+  
+  public var pickerViewDelegate: UIPickerViewDelegate? {
+    get {
+      return pickerView.delegate
+    }
+    set {
+      return pickerView.delegate = newValue
+    }
+  }
+  public var pickerViewDataSource: UIPickerViewDataSource? {
+    get {
+      return pickerView.dataSource
+    }
+    set {
+      return pickerView.dataSource = newValue
+    }
+  }
+  
+  public weak var delegate: CRPickerButtonDelegate?
+  
+  public override var inputView: UIView? {
+    return pickerView
+  }
+  
+  public override var inputAccessoryView: UIView? {
+    let toolbar = UIToolbar()
+    toolbar.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: 44)
+    toolbar.translatesAutoresizingMaskIntoConstraints = false
+    let closeButton = UIBarButtonItem(
+      title: closeButtonTitle,
+      style: .plain,
+      target: self,
+      action: #selector(didTapClose(_:))
+    )
+    closeButton.tintColor = closeButtonTintColor
+    let space = UIBarButtonItem(
+      barButtonSystemItem: .flexibleSpace,
+      target: nil,
+      action: nil
+    )
+    let doneButton = UIBarButtonItem(
+      title: doneButtonTitle,
+      style: .done,
+      target: self,
+      action: #selector(didTapDone(_:))
+    )
+    doneButton.tintColor = doneButtonTintColor
+
+    let items = [closeButton, space, doneButton]
+    toolbar.setItems(items, animated: false)
+    toolbar.sizeToFit()
+    toolbar.updateConstraintsIfNeeded()
+
+    return toolbar
+  }
+  
+  public override var canBecomeFirstResponder: Bool {
+    return true
+  }
+  
+  // MARK: - Variables
+  private var closeButtonTitle: String = "Close"
+  private var doneButtonTitle: String = "Done"
+  private var closeButtonTintColor: UIColor = .systemBlue
+  private var doneButtonTintColor: UIColor = .systemBlue
+  
+  // MARK: - Initializer
+  public override init(frame: CGRect) {
+    super.init(frame: frame)
+    configureView()
+  }
+  
+  required public init?(coder: NSCoder) {
+    super.init(coder: coder)
+    configureView()
+  }
+  
+  // MARK: - Public Methods
+  public func reloadData() {
+    pickerView.reloadAllComponents()
+  }
+  
+  public func setTitleForCloseButton(_ title: String, color: UIColor = .systemBlue) {
+    closeButtonTitle = title
+    closeButtonTintColor = color
+  }
+  
+  public func setTitleForDoneButton(_ title: String, color: UIColor = .systemBlue) {
+    doneButtonTitle = title
+    doneButtonTintColor = color
+  }
+  
+  public func setBackgroundColorForPicker(color: UIColor) {
+    pickerView.backgroundColor = color
+  }
+  
+}
+
+// MARK: - Obj-C Methods
+@objc
+extension CRPickerButton {
+  /// Close the picker view
+  private func didTapClose(_ button: UIBarButtonItem) {
+    closePickerView()
+  }
+  
+  private func didTapDone(_ button: UIBarButtonItem) {
+    let row = pickerView.selectedRow(inComponent: pickerView.numberOfComponents - 1)
+    delegate?.pickerView(pickerView, titleForRow: row)
+    if let title = pickerView.delegate?.pickerView?(pickerView, titleForRow: row, forComponent: pickerView.numberOfComponents) {
+      setTitle(title, for: .normal)
+    } else {
+      assertionFailure("Failed to get pickerView value.")
+    }
+    closePickerView()
+  }
+  
+  /// Open the picker view
+  private func didTapButton() {
+    becomeFirstResponder()
+  }
+  
+}
+
+// MARK: - Private Methods
+extension CRPickerButton {
+  
+  private func configureView() {
+    pickerView.delegate = pickerViewDelegate
+    pickerView.dataSource = pickerViewDataSource
+    self.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+  }
+  
+  private func closePickerView() {
+    resignFirstResponder()
+  }
+  
+}
+
