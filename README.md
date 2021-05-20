@@ -2,7 +2,7 @@
 A simple UIPickerView + UIButton UI component. Written in Swift.
 
 ## Preview
-![image](https://user-images.githubusercontent.com/11539551/118927160-56e71480-b97c-11eb-9b4b-91bddae239c4.png)
+<img src="https://user-images.githubusercontent.com/11539551/118927160-56e71480-b97c-11eb-9b4b-91bddae239c4.png" data-canonical-src="https://user-images.githubusercontent.com/11539551/118927160-56e71480-b97c-11eb-9b4b-91bddae239c4.png" width="360" height="700" />
 
 ## Requirements
 - Swift 4 or greater
