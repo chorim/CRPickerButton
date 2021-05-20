@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'CRPickerButton_Example' do
+  pod 'CRPickerButton', :path => '../'
+
+  target 'CRPickerButton_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

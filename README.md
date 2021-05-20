@@ -1,6 +1,11 @@
 # CRPickerButton
 A simple UIPickerView + UIButton UI component. Written in Swift.
 
+[![CI Status](https://img.shields.io/travis/chorim/CRPickerButton.svg?style=flat)](https://travis-ci.org/chorim/CRPickerButton)
+[![Version](https://img.shields.io/cocoapods/v/CRPickerButton.svg?style=flat)](https://cocoapods.org/pods/CRPickerButton)
+[![License](https://img.shields.io/cocoapods/l/CRPickerButton.svg?style=flat)](https://cocoapods.org/pods/CRPickerButton)
+[![Platform](https://img.shields.io/cocoapods/p/CRPickerButton.svg?style=flat)](https://cocoapods.org/pods/CRPickerButton)
+
 ## Preview
 <img src="https://user-images.githubusercontent.com/11539551/118927160-56e71480-b97c-11eb-9b4b-91bddae239c4.png" data-canonical-src="https://user-images.githubusercontent.com/11539551/118927160-56e71480-b97c-11eb-9b4b-91bddae239c4.png" width="360" height="700" />
 
