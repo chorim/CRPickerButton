@@ -9,7 +9,7 @@ import UIKit
 
 public class CRPickerButton: UIButton {
   
-  private let pickerView = UIPickerView()
+  public let pickerView = UIPickerView()
   
   public var pickerViewDelegate: UIPickerViewDelegate? {
     get {
